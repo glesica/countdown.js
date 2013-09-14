@@ -5,13 +5,11 @@
     var mspd = spd * 1000;
 
     var Blocks = function(selector, props) {
-        if (selector === undefined) throw 'Missing parameter: selector';
-        props = props || {};
-        this.ten = props.ten || new Date();
-        this.zero = props.zero || new Date((new Date()).valueOf() + 5 * mspd);
-        this.title = props.title || '';
-
-        var container = d3.select(selector);
+        this.zero = props.zero;
+        this.title = props.title;
+        var container = d3.select(selector)
+            .append('div')
+                .attr('class', 'countdown-blocks');
         if (this.title) {
             this.titleContainer = container
                 .append('div')
