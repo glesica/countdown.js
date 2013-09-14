@@ -45,7 +45,9 @@
 
     Blocks.prototype = {
         update: function() {
-            var dif = (this.zero - (new Date())) / 1000;
+            var current = new Date();
+
+            var dif = (this.zero - current) / 1000;
             if (dif < 0) { dif = 0; }
             var days = Math.floor(dif / spd);
             var hours = Math.floor((dif % spd) / sph);
