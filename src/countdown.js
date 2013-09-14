@@ -123,9 +123,40 @@
         }
     };
 
+    var Circles = function(selection, props) {
+        this.ten = props.ten;
+        this.zero = props.zero;
+        this.title = props.title;
+        var container = d3.select(selector);
+        if (this.title) {
+            this.titleContainer = container
+                .append('div')
+                    .attr('class', 'title-box')
+                    .text(this.title);
+        }
+    };
+
     countdown = {
+        create: function(type, selector, props) {
+            if (selector === undefined) throw 'Missing parameter: selector';
+            p = {};
+            p.ten = props.ten;
+            p.zero = props.zero || new Date((new Date()).valueOf() + 5 * mspd);
+            p.title = props.title || '';
+            switch(type) {
+                case 'blocks':
+                    return new Blocks(selector, p);
+                    break;
+                case 'circles': 
+                    return new Circle(selector, p);
+                    break;
+            }
+        },
         blocks: function(selector, props) {
-            return new Blocks(selector, props);
+            return countdown.create('blocks', selector, props);
+        },
+        circles: function(selection, props) {
+            return countdown.create('circles', selector, props);
         }
     };
 })();
