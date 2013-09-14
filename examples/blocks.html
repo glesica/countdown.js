@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<title>Blocks Example</title>
+<style type="text/css">
+body {
+    background-color: black;
+}
+
+.title-box {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 1.0em;
+}
+
+#countdown {
+    padding: 10px;
+    padding-bottom: 5px;
+}
+
+.days-box, .hours-box, .minutes-box, .seconds-box {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 25px;
+    font-size: 0;
+}
+
+.days-box span, .hours-box span, .minutes-box span, .seconds-box span {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 8pt;
+    line-height: 25px;
+    padding-left: 5px;
+    position: absolute;
+    height: 25px;
+    width: 50px;
+    font-weight: bold;
+    left: 0px;
+    top: 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-shadow: black 3px 3px 6px;
+}
+
+.days-box .box {
+    background-color: #153450;
+}
+
+.hours-box .box {
+    background-color: #294052;
+}
+
+.minutes-box .box {
+    background-color: #447294;
+}
+
+.seconds-box .box {
+    background-color: #8FBCDB;
+}
+
+.box {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: black;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.box:first-child {
+    /*margin-left: 106px;*/
+}
+</style>
+</head>
+<body>
+    <div id="countdown"></div>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="../src/countdown.js"></script>
+    <script>
+        var cd = countdown.blocks('#countdown', {
+            title: 'Blocks Visualization'
+        }).run();
+    </script>
+</body>
+</html>
